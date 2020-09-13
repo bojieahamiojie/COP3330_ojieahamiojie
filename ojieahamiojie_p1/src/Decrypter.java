@@ -22,6 +22,6 @@ public class Decrypter {
             k = (k * 10) + j;
             e = e / 10;
         }
-        System.out.println("The original integers were \n" +k);
+        System.out.println("The original integers are \n" +k);
     }
 }

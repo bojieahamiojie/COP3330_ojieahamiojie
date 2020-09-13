@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Encrypter {
 
     public void main(String[] args){
-        System.out.println("Enter 4 digits: \n");
+        System.out.println("Enter 4 integers: \n");
         Scanner sc = new Scanner(System.in);
 
         int e, i, j, k;
@@ -22,6 +22,6 @@ public class Encrypter {
             k = (k * 10) + j;
             e = e / 10;
         }
-        System.out.println("The encrypted number is \n"+k);
+        System.out.println("The encrypted integers are \n"+k);
     }
 }
