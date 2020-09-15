@@ -12,8 +12,7 @@ public class Decrypter {
         num[3] = num[1];
         num[1] = temp;
 
-        for(i = 0; i < 4; i++)
-        {
+        for(i = 0; i < 4; i++) {
             j = (num[i] - 48 + 3) %10;
             ch = (char)(j + 48);
             num[i] = ch;

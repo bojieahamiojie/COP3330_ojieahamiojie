@@ -1,5 +1,4 @@
 public class Encrypter {
-
     public String encrypt(String inputValue) {
         char[] num = inputValue.toCharArray();
         int i, j;
