@@ -1,27 +1,22 @@
-import java.util.Scanner;
-
 public class Encrypter {
 
-    public void main(String[] args){
-        System.out.println("Enter 4 integers: \n");
-        Scanner sc = new Scanner(System.in);
+    public String encrypt(String inputValue) {
+        char[] num = inputValue.toCharArray();
+        int i, j;
+        char ch, temp;
 
-        int e, i, j, k;
-        e = 0;
-        k = sc.nextInt();
-
-        for (i = 1; i <= 4; i++){
-            j = (k % 10) + 7;
-            e = (e * 10) + (j % 10);
-            k = k / 10;
+        for (i = 0; i < 4; i++) {
+            j = (num[i] - 48 + 7) % 10;
+            ch = (char) (j + 48);
+            num[i] = ch;
         }
-        k = 0;
+        temp = num[0];
+        num[0] = num[2];
+        num[2] = temp;
+        temp = num[1];
+        num[1] = num[3];
+        num[3] = temp;
 
-        while (e > 0){
-            j = e % 10;
-            k = (k * 10) + j;
-            e = e / 10;
-        }
-        System.out.println("The encrypted integers are \n"+k);
+        return new String(num);
     }
 }
