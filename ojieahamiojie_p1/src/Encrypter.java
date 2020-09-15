@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Encrypter {
 
-    public void encrypt(String[] args){
+    public void main(String[] args){
         System.out.println("Enter 4 integers: \n");
         Scanner sc = new Scanner(System.in);
 

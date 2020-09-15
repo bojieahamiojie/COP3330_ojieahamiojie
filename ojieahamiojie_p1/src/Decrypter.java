@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Decrypter {
 
-    public void decrypt(String[] args){
+    public void main(String[] args){
         System.out.println("Enter the encrypted integers: \n");
         Scanner sc = new Scanner(System.in);
 
