@@ -20,10 +20,10 @@ public class BodyMassIndex {
         if (bmi >= 30){
             return "You are obese.";
         }
-        else if (bmi >= 25 || bmi <= 29){
+        else if (25 <= bmi){
             return "You are overweight.";
         }
-        else if (bmi >= 18.5 || bmi <= 24.9){
+        else if (bmi <= 24.9){
             return "Your weight is normal.";
         }
         return "You are underweight.";
