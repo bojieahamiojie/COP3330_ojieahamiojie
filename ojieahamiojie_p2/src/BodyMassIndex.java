@@ -11,22 +11,23 @@ public class BodyMassIndex {
     }
 
     public static double calculateBMI(double height, double weight){
-        return (703 * weight) / (height * height);
+        double total = (703 * weight) / (height * height);
+        return Math.round((total) * 10) / 10.0;
     }
 
     public static String BMICategory(double height, double weight){
         double bmi = calculateBMI(height, weight);
 
         if (bmi >= 30){
-            return "You are obese.";
+            return "Obese.";
         }
         else if (25 <= bmi){
-            return "You are overweight.";
+            return "Overweight.";
         }
         else if (18.5 <= bmi){
-            return "Your weight is normal.";
+            return "Normal weight.";
         }
-        return "You are underweight.";
+        return "Underweight.";
     }
 
     public String getBMICategory(){
