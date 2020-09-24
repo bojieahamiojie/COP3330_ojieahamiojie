@@ -18,12 +18,15 @@ public class BodyMassIndex {
         double bmi = calculateBMI(height, weight);
 
         if (bmi >= 30){
-            return "obese";
+            return "You are obese.";
         }
-        else if (bmi >= 18.5){
-            return "Overweight";
+        else if (bmi >= 25 || bmi <= 29){
+            return "You are overweight.";
         }
-        return "underweight";
+        else if (bmi >= 18.5 || bmi <= 24.9){
+            return "Your weight is normal.";
+        }
+        return "You are underweight.";
     }
 
     public String getBMICategory(){
