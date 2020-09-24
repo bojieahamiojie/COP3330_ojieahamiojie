@@ -21,20 +21,20 @@ public class App {
 
     public static boolean moreInput(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Would you like to enter more data?: \n");
+        System.out.println("Would you like to enter more data?: ");
         String choice = input.nextLine();
         return !choice.equalsIgnoreCase("n");
     }
 
     public static double getUserHeight(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter your height: \n");
+        System.out.println("Enter your height in inches: ");
         double height;
         height = input.nextDouble();
 
         while(height < 0) {
             System.out.println("Please enter positive values!\n");
-            System.out.println("Enter your height in inches:\n");
+            System.out.println("Enter your height in inches: ");
             height = input.nextDouble();
         }
         input.nextLine();
@@ -43,12 +43,12 @@ public class App {
 
     public static double getUserWeight(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter your weight: \n");
+        System.out.println("Enter your weight: ");
         double weight;
         weight = input.nextDouble();
         while (weight < 0) {
             System.out.println("Please enter positive values!\n");
-            System.out.println("Enter your weight in inches:\n");
+            System.out.println("Enter your weight in inches: ");
             weight = input.nextDouble();
         }
         input.nextLine();
