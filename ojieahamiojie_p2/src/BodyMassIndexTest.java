@@ -25,28 +25,4 @@ public class BodyMassIndexTest {
         BodyMassIndex bmi = new BodyMassIndex(60, 159);
         assertEquals(31.0, bmi.getBMI());
     }
-
-    @Test
-    public void testBodyMassIndex(){
-    }
-
-    @Test
-    public void testgetBMI(){
-    }
-
-    @Test
-    public void testcalculateBMI(){
-    }
-
-    @Test
-    public void testBMICategory(){
-    }
-
-    @Test
-    public void testgetBMICategory(){
-    }
-
-    @Test
-    public void testtoString(){
-    }
 }
