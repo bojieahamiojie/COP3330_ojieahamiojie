@@ -1,17 +1,16 @@
-public abstract class Square extends Shape {
-    private double base;
-    private double height;
+public class Square{
+    private double length;
+    private double width;
     private String name;
 
-    public Square(double base, double height){
-        super();
-        this.base = base;
-        this.height = height;
+    public Square(double length, double width){
+        this.length = length;
+        this.width = width;
         this.name = "square";
     }
 
     public double getArea(){
-        return base * height;
+        return length * width;
     }
 
     public String getName(){
