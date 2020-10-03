@@ -1,22 +1,18 @@
 public class Cube{
-    private double length;
-    private double width;
-    private double height;
+    private double side;
     private String name;
 
-    public Cube(double length, double width, double height){
-        this.length = length;
-        this.width = width;
-        this.height = height;
+    public Cube(double side){
+        this.side = side;
         this.name = "cube";
     }
 
     public double getArea(){
-        return 6 * length * width * height;
+        return 6 * side * side * side;
     }
 
     public double getVolume(){
-        return length * width * height;
+        return side * side * side;
     }
 
     public String getName(){

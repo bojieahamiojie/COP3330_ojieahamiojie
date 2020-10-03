@@ -1,4 +1,4 @@
-public class Triangle{
+public class Triangle extends Shape{
     private double length;
     private double width;
     private String name;

@@ -1,16 +1,14 @@
-public class Square{
-    private double length;
-    private double width;
+public class Square extends Shape {
+    private double side;
     private String name;
 
-    public Square(double length, double width){
-        this.length = length;
-        this.width = width;
+    public Square(double side){
+        this.side = side;
         this.name = "square";
     }
 
     public double getArea(){
-        return length * width;
+        return side * side;
     }
 
     public String getName(){

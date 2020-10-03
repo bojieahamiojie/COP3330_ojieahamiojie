@@ -1,5 +1,5 @@
 import java.lang.Math.*;
-public class Circle {
+public class Circle extends Shape{
     private double radius;
     private String name;
 
