@@ -1,4 +1,4 @@
-public class Triangle extends Shape{
+public class Triangle extends Shape2D{
     private double length;
     private double width;
     private String name;
@@ -9,11 +9,11 @@ public class Triangle extends Shape{
         this.name = "triangle";
     }
 
-    public double getArea(){
-        return (length * width) / 2;
-    }
-
     public String getName(){
         return name;
+    }
+
+    public double getArea(){
+        return (length * width) / 2;
     }
 }

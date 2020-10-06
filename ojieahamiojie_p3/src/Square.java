@@ -1,4 +1,4 @@
-public class Square extends Shape {
+public class Square extends Shape2D{
     private double side;
     private String name;
 
@@ -7,11 +7,11 @@ public class Square extends Shape {
         this.name = "square";
     }
 
-    public double getArea(){
-        return side * side;
-    }
-
     public String getName(){
         return name;
+    }
+
+    public double getArea(){
+        return Math.pow(side, 2);
     }
 }

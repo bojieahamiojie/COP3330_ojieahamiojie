@@ -1,4 +1,4 @@
-public abstract class Shape3D {
-    abstract double getArea();
-    abstract double getVolume();
+public abstract class Shape3D extends Shape{
+    public abstract double getArea();
+    public abstract double getVolume();
 }

@@ -1,5 +1,4 @@
-import java.lang.Math.*;
-public class Circle extends Shape{
+public class Circle extends Shape2D{
     private double radius;
     private String name;
 
@@ -8,11 +7,11 @@ public class Circle extends Shape{
         this.name = "circle";
     }
 
-    public double getArea(){
-        return radius * Math.PI;
-    }
-
     public String getName(){
         return name;
+    }
+
+    public double getArea(){
+        return Math.PI * Math.pow(radius, 2);
     }
 }

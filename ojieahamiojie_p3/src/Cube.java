@@ -1,4 +1,4 @@
-public class Cube{
+public class Cube extends Shape3D{
     private double side;
     private String name;
 
@@ -7,15 +7,15 @@ public class Cube{
         this.name = "cube";
     }
 
+    public String getName(){
+        return name;
+    }
+
     public double getArea(){
-        return 6 * side * side * side;
+        return 6 * Math.pow(side, 2);
     }
 
     public double getVolume(){
-        return side * side * side;
-    }
-
-    public String getName(){
-        return name;
+        return Math.pow(side, 3);
     }
 }
