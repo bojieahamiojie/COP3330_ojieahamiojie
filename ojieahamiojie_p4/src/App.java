@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -18,12 +19,12 @@ public class App {
             System.out.println("---------\n");
             System.out.println("1) Create a new list\n");
             System.out.println("2) Load an existing list\n");
-            System.out.println("3) quit\n>");
-
+            System.out.println("3) quit\n> ");
             int choice = input.nextInt();
 
             switch(choice){
                 case 1:
+                    System.out.println("new task list has been created\n");
                     newList();
                     break;
                 case 2:
@@ -64,7 +65,7 @@ public class App {
                 case 2:
                     TaskItem currentItem = parseItem();
                     if(currentItem != null)
-                        currentList.addTask(currentItem);
+                        currentList.addTask((List<TaskItem>) currentItem);
                     break;
                 case 3:
                     editItem(currentList);
@@ -199,9 +200,9 @@ public class App {
 
         System.out.println("Task title: ");
         title = input.nextLine();;
-        System.out.println("\n Task description: ");
+        System.out.println("Task description: ");
         description = input.nextLine();
-        System.out.println("\nTask due date (YYYY-MM-DD): ");
+        System.out.println("Task due date (YYYY-MM-DD): ");
         date = input.nextLine();
 
         parsedItem = createItem(title, description, date, false);
@@ -211,7 +212,7 @@ public class App {
     public static TaskItem createItem(String title, String description, String date, boolean marked){
         TaskItem createdItem = new TaskItem();
 
-        if(!createdItem.setTitle(title) || !createdItem.setDueData(date))
+        if(!createdItem.setTitle(title) || !createdItem.setDueDate(date))
             return null;
 
         createdItem.setDescription(description);
@@ -263,7 +264,7 @@ public class App {
             boolean marked = Boolean.parseBoolean(variables[3]);
 
             TaskItem temp = new TaskItem(title, description, date, marked);
-            newList.addTask(temp);
+            newList.addTask((List<TaskItem>) temp);
         }
         subMenu(newList);
     }

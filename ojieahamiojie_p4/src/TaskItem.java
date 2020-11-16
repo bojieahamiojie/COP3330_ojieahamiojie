@@ -1,141 +1,93 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class TaskItem {
-    private List<com.company.TaskItem> tasks;
+    private String title;
+    private String description;
+    private String dueDate;
+    private boolean marked;
 
-    public void TaskList(){
-        this.tasks = new ArrayList<>();
+    public TaskItem(){
+        this.title = "";
+        this.description = "";
+        this.dueDate = "";
+        this.marked = false;
     }
 
-    public void TaskList(List<com.company.TaskItem> tasks){
-        this.tasks = tasks;
+    public TaskItem(String title, String description, String dueDate, boolean marked){
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.marked = marked;
     }
 
-    public void addTask(List<com.company.TaskItem> item){
-        tasks.add((com.company.TaskItem) item);
+    public String getTitle(){
+        return title;
     }
 
-    public List<com.company.TaskItem> getTasks(){
-        return tasks;
-    }
-
-    public void setTasks(List<com.company.TaskItem> tasks){
-        this.tasks = tasks;
-    }
-
-    public boolean removeTask(int choice){
-        if(this.validEditIndex(choice)) {
-            this.getTasks().remove(choice);
-            return true;
+    public boolean setTitle(String title){
+        if(!this.validateTitle(title)){
+            System.out.println("\nWARNING: Title must be at least 1 character long; task not created\n");
+            return false;
         }
-        return false;
+        this.title = title;
+        return true;
     }
 
-    public boolean completedTasks(){
-        int count = 0;
-        for(com.company.TaskItem temp : this.getTasks()){
-            if(temp.isMarked())
-                count++;
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
+
+    public String getDueDate(){
+        return dueDate;
+    }
+
+    public boolean setDueDate(String dueDate){
+        if(!this.validateData(dueDate)){
+            System.out.println("\nWARNING: Invalid due date; task not created\n");
+            return false;
         }
-
-        if(count == this.getTasks().size() - 1)
-            return true;
-
-        return false;
+        this.dueDate = dueDate;
+        return true;
     }
 
-    public boolean uncompletedTasks(){
-        int count = 0;
-        for(com.company.TaskItem temp : this.getTasks()){
-            if(!temp.isMarked())
-                count++;
-        }
-
-        if(count == this.getTasks().size() - 1)
-            return true;
-
-        return false;
+    public boolean isMarked(){
+        return marked;
     }
 
-    public boolean validEditIndex(int choice){
-        if(choice >= 0 && choice < this.getTasks().size())
-            return true;
-
-        return false;
+    public void setMarked(){
+        this.marked = true;
     }
 
-    public boolean validMarkIndex(int choice){
-        if(choice >= 0 && choice < this.getTasks().size()) {
-            if (!(this.getTasks().get(choice).isMarked())) {
-                this.getTasks().get(choice).setMarked();
-                return true;
-            }
-        }
-        return false;
+    public void setUnmarked(){
+        this.marked = false;
     }
 
-    public boolean validUnmarkIndex(int choice){
-        if(choice >= 0 && choice < this.getTasks().size()) {
-            if (this.getTasks().get(choice).isMarked()) {
-                this.getTasks().get(choice).setUnmarked();
-                return true;
-            }
-        }
-        return false;
+    public boolean validateTitle(String title){
+        if(title.length() < 1)
+            return false;
+
+        return true;
     }
 
-    public void printElements(){
-        for(int i = 0; i < tasks.size(); i++){
-            System.out.println(i + ") ");
-            com.company.TaskItem temp = tasks.get(i);
+    public boolean validateData(String date){
+        String[] parsedDate = date.split("-");
 
-            if(temp.isMarked())
-                System.out.println("*** ");
-            System.out.println("[" + temp.getDueDate() + "] ");
-            System.out.println(temp.getTitle() + ": ");
-            System.out.println(temp.getDescription());
-        }
-    }
+        if(parsedDate.length != 3)
+            return false;
 
-    public void printUnmarked(){
-        for(int i = 0; i < tasks.size(); i++){
-            com.company.TaskItem temp = tasks.get(i);
+        String year = parsedDate[0];
+        String month = parsedDate[1];
+        String day = parsedDate[2];
 
-            if(!temp.isMarked()){
-                System.out.println(i + ") ");
-                System.out.println("[" + temp.getDueDate() + "] ");
-                System.out.println(temp.getTitle() + ": ");
-                System.out.println(temp.getDescription());
-            }
-        }
-    }
+        if(year.length() != 4 || !(year.matches("[0-9]+")))
+            return false;
+        if(month.length() != 2 || !(month.matches("[0-9]+")))
+            return false;
+        if (day.length() != 2 || !(day.matches("[0-9]+")))
+            return false;
 
-    public void printMarked(){
-        for(int i = 0; i < tasks.size(); i++){
-            com.company.TaskItem temp = tasks.get(i);
-
-            if(temp.isMarked()){
-                System.out.println(i + ") ");
-                System.out.println("[" + temp.getDueDate() + "] ");
-                System.out.println(temp.getTitle() + ": ");
-                System.out.println(temp.getDescription());
-            }
-        }
-    }
-
-    public void saveList(File file) throws IOException{
-        FileWriter fw = new FileWriter(file);
-        for(com.company.TaskItem temp : tasks){
-            String line = temp.getTitle() + "|";
-            line += temp.getTitle() + "|";
-            line += temp.getDueDate() + "|";
-            line += temp.isMarked() + "\n";
-            fw.write(line);
-        }
-        fw.close();
+        return true;
     }
 }
