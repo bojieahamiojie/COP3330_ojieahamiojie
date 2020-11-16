@@ -1,5 +1,3 @@
-package com.company;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,25 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskItem {
-    private List<TaskItem> tasks;
+    private List<com.company.TaskItem> tasks;
 
     public void TaskList(){
         this.tasks = new ArrayList<>();
     }
 
-    public void TaskList(List<TaskItem> tasks){
+    public void TaskList(List<com.company.TaskItem> tasks){
         this.tasks = tasks;
     }
 
-    public void addTask(List<TaskItem> item){
-        tasks.add((TaskItem) item);
+    public void addTask(List<com.company.TaskItem> item){
+        tasks.add((com.company.TaskItem) item);
     }
 
-    public List<TaskItem> getTasks(){
+    public List<com.company.TaskItem> getTasks(){
         return tasks;
     }
 
-    public void setTasks(List<TaskItem> tasks){
+    public void setTasks(List<com.company.TaskItem> tasks){
         this.tasks = tasks;
     }
 
@@ -39,7 +37,7 @@ public class TaskItem {
 
     public boolean completedTasks(){
         int count = 0;
-        for(TaskItem temp : this.getTasks()){
+        for(com.company.TaskItem temp : this.getTasks()){
             if(temp.isMarked())
                 count++;
         }
@@ -52,7 +50,7 @@ public class TaskItem {
 
     public boolean uncompletedTasks(){
         int count = 0;
-        for(TaskItem temp : this.getTasks()){
+        for(com.company.TaskItem temp : this.getTasks()){
             if(!temp.isMarked())
                 count++;
         }
@@ -93,7 +91,7 @@ public class TaskItem {
     public void printElements(){
         for(int i = 0; i < tasks.size(); i++){
             System.out.println(i + ") ");
-            TaskItem temp = tasks.get(i);
+            com.company.TaskItem temp = tasks.get(i);
 
             if(temp.isMarked())
                 System.out.println("*** ");
@@ -105,7 +103,7 @@ public class TaskItem {
 
     public void printUnmarked(){
         for(int i = 0; i < tasks.size(); i++){
-            TaskItem temp = tasks.get(i);
+            com.company.TaskItem temp = tasks.get(i);
 
             if(!temp.isMarked()){
                 System.out.println(i + ") ");
@@ -118,7 +116,7 @@ public class TaskItem {
 
     public void printMarked(){
         for(int i = 0; i < tasks.size(); i++){
-            TaskItem temp = tasks.get(i);
+            com.company.TaskItem temp = tasks.get(i);
 
             if(temp.isMarked()){
                 System.out.println(i + ") ");
@@ -131,7 +129,7 @@ public class TaskItem {
 
     public void saveList(File file) throws IOException{
         FileWriter fw = new FileWriter(file);
-        for(TaskItem temp : tasks){
+        for(com.company.TaskItem temp : tasks){
             String line = temp.getTitle() + "|";
             line += temp.getTitle() + "|";
             line += temp.getDueDate() + "|";
