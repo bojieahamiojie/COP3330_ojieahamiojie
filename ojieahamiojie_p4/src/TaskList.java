@@ -15,7 +15,7 @@ public class TaskList {
         this.tasks = tasks;
     }
 
-    public void addTask(List<TaskItem> item){
+    public void addTask(TaskItem item){
         tasks.add((TaskItem) item);
     }
 
