@@ -5,64 +5,12 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
-    @Test
-    public void creatingTaskItemFailsWithInvalidDueDate() {
-        String failDate = "20205105151";
-        assertNull(App.createItem("Filler title", "Filler description", failDate, false));
-    }
-
-    @Test
-    public void creatingTaskItemFailsWIthInvalidTitle(){
-        String failTitle = "";
-        assertNull(App.createItem(failTitle, "Filler description", "2020-01-01", false));
-    }
-
-    @Test
-    public void creatingTaskItemSucceedsWithValidDueDate(){
-        String successDate = "2020-01-01";
-        assertNotNull(App.createItem("Filler title", "Filler description", successDate, false));
-    }
-
-    @Test
-    public void creatingTaskItemSucceedsWithValidTitle(){
-        String successTitle = "Task 1";
-        assertNotNull(App.createItem(successTitle, "Filler description", "2020-02-05", false));
-    }
-
-    @Test
-    public void settingTaskItemDueDateFailsWithInvalidDate(){
-        String failDate = "20200202";
-        TaskItem temp = new TaskItem("Success", "Success", failDate, false);
-        assertFalse(temp.setDueDate(failDate));
-    }
-
-    @Test
-    public void settingTaskItemDueDateSucceedsWithValidDate(){
-        String successDate = "2020-05-04";
-        TaskItem temp = new TaskItem("Success", "Success", "0120-01-01", false);
-        assertTrue(temp.setDueDate(successDate));
-    }
-
-    @Test
-    public void settingTaskItemTileFailsWithInvalidTitle(){
-        String failTitle = "";
-        TaskItem temp = new TaskItem("Good title", "Success", "0120-01-01", false);
-        assertFalse(temp.setTitle(failTitle));
-    }
-
-    @Test
-    public void settingTaskItemSucceedsWithValidTitle(){
-        String successTitle = "New title";
-        TaskItem temp = new TaskItem("Success", "Success", "0120-01-01", false);
-        assertTrue(temp.setTitle(successTitle));
-    }
-
+public class TaskListTest {
     @Test
     public void addingTaskItemIncreasesSize(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertEquals(1, newList.getTasks().size());
     }
 
@@ -80,7 +28,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertFalse(newList.validMarkIndex(2));
     }
 
@@ -89,7 +37,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertFalse(newList.validEditIndex(2));
 
     }
@@ -110,7 +58,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -130,7 +78,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -139,7 +87,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -148,7 +96,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertTrue(newList.validEditIndex(0));
 
         TaskItem getItem = newList.getTasks().get(0);
@@ -161,7 +109,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -170,7 +118,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertTrue(newList.validEditIndex(0));
 
         TaskItem getItem = newList.getTasks().get(0);
@@ -182,7 +130,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -191,7 +139,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertTrue(newList.validEditIndex(0));
 
         TaskItem getItem = newList.getTasks().get(0);
@@ -213,9 +161,9 @@ public class AppTest {
         TaskItem newItem2 = new TaskItem("Success 2", "Success 2", "2020-01-01", false);
         TaskItem newItem3 = new TaskItem("Success 3", "Success 3", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem1);
-        newList.addTask((List<TaskItem>) newItem2);
-        newList.addTask((List<TaskItem>) newItem3);
+        newList.addTask(newItem1);
+        newList.addTask(newItem2);
+        newList.addTask(newItem3);
 
         assertEquals(3, newList.getTasks().size());
         newList.removeTask(0);
@@ -230,9 +178,9 @@ public class AppTest {
         TaskItem newItem2 = new TaskItem("Success 2", "Success 2", "2020-01-01", false);
         TaskItem newItem3 = new TaskItem("Success 3", "Success 3", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem1);
-        newList.addTask((List<TaskItem>) newItem2);
-        newList.addTask((List<TaskItem>) newItem3);
+        newList.addTask(newItem1);
+        newList.addTask(newItem2);
+        newList.addTask(newItem3);
 
         assertEquals(3, newList.getTasks().size());
         assertFalse(newList.removeTask(5));
@@ -246,9 +194,9 @@ public class AppTest {
         TaskItem newItem2 = new TaskItem("Success 2", "Success 2", "2020-01-01", false);
         TaskItem newItem3 = new TaskItem("Success 3", "Success 3", "2020-01-01", false);
 
-        newList.addTask((List<TaskItem>) newItem1);
-        newList.addTask((List<TaskItem>) newItem2);
-        newList.addTask((List<TaskItem>) newItem3);
+        newList.addTask(newItem1);
+        newList.addTask(newItem2);
+        newList.addTask(newItem3);
 
         String path = "test.txt";
         File file = new File("Saved_Lists//" + path);
@@ -274,7 +222,7 @@ public class AppTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", true);
 
-        newList.addTask((List<TaskItem>) newItem);
+        newList.addTask(newItem);
         assertTrue(newList.validEditIndex(0));
         assertFalse(newList.validEditIndex(2));
     }
