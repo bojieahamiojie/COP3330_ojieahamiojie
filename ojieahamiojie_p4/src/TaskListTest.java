@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,7 +11,7 @@ public class TaskListTest {
     public void addingTaskItemIncreasesSize(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertEquals(1, newList.getTasks().size());
     }
 
@@ -28,7 +29,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertFalse(newList.validMarkIndex(2));
     }
 
@@ -37,7 +38,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertFalse(newList.validEditIndex(2));
 
     }
@@ -58,7 +59,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -78,7 +79,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -87,7 +88,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -96,7 +97,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertTrue(newList.validEditIndex(0));
 
         TaskItem getItem = newList.getTasks().get(0);
@@ -109,7 +110,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -118,7 +119,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertTrue(newList.validEditIndex(0));
 
         TaskItem getItem = newList.getTasks().get(0);
@@ -130,7 +131,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -139,7 +140,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertTrue(newList.validEditIndex(0));
 
         TaskItem getItem = newList.getTasks().get(0);
@@ -161,9 +162,9 @@ public class TaskListTest {
         TaskItem newItem2 = new TaskItem("Success 2", "Success 2", "2020-01-01", false);
         TaskItem newItem3 = new TaskItem("Success 3", "Success 3", "2020-01-01", false);
 
-        newList.addTask(newItem1);
-        newList.addTask(newItem2);
-        newList.addTask(newItem3);
+        newList.addTask(Collections.singletonList(newItem1));
+        newList.addTask(Collections.singletonList(newItem2));
+        newList.addTask(Collections.singletonList(newItem3));
 
         assertEquals(3, newList.getTasks().size());
         newList.removeTask(0);
@@ -178,9 +179,9 @@ public class TaskListTest {
         TaskItem newItem2 = new TaskItem("Success 2", "Success 2", "2020-01-01", false);
         TaskItem newItem3 = new TaskItem("Success 3", "Success 3", "2020-01-01", false);
 
-        newList.addTask(newItem1);
-        newList.addTask(newItem2);
-        newList.addTask(newItem3);
+        newList.addTask(Collections.singletonList(newItem1));
+        newList.addTask(Collections.singletonList(newItem2));
+        newList.addTask(Collections.singletonList(newItem3));
 
         assertEquals(3, newList.getTasks().size());
         assertFalse(newList.removeTask(5));
@@ -194,9 +195,9 @@ public class TaskListTest {
         TaskItem newItem2 = new TaskItem("Success 2", "Success 2", "2020-01-01", false);
         TaskItem newItem3 = new TaskItem("Success 3", "Success 3", "2020-01-01", false);
 
-        newList.addTask(newItem1);
-        newList.addTask(newItem2);
-        newList.addTask(newItem3);
+        newList.addTask(Collections.singletonList(newItem1));
+        newList.addTask(Collections.singletonList(newItem2));
+        newList.addTask(Collections.singletonList(newItem3));
 
         String path = "test.txt";
         File file = new File("Saved_Lists//" + path);
@@ -222,7 +223,7 @@ public class TaskListTest {
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", true);
 
-        newList.addTask(newItem);
+        newList.addTask(Collections.singletonList(newItem));
         assertTrue(newList.validEditIndex(0));
         assertFalse(newList.validEditIndex(2));
     }
