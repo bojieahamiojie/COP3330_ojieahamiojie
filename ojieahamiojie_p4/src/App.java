@@ -65,7 +65,7 @@ public class App {
                 case 2:
                     TaskItem currentItem = parseItem();
                     if(currentItem != null)
-                        currentList.addTask((List<TaskItem>) currentItem);
+                        currentList.addTask(currentItem);
                     break;
                 case 3:
                     editItem(currentList);
@@ -264,7 +264,7 @@ public class App {
             boolean marked = Boolean.parseBoolean(variables[3]);
 
             TaskItem temp = new TaskItem(title, description, date, marked);
-            newList.addTask((List<TaskItem>) temp);
+            newList.addTask(temp);
         }
         subMenu(newList);
     }

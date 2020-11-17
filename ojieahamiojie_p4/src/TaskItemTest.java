@@ -17,13 +17,13 @@ public class TaskItemTest {
     @Test
     public void creatingTaskItemSucceedsWithValidDueDate(){
         String successDate = "2020-01-01";
-        assertNotNull(App.createItem("Filler title", "Filler desciption", successDate, false));
+        assertNotNull(App.createItem("Filler title", "Filler description", successDate, false));
     }
 
     @Test
     public void creatingTaskItemSucceedsWithValidTitle(){
         String successTitle = "Task 1";
-        assertNotNull(App.createItem(successTitle, "Filler desciption", "2020-02-05", false));
+        assertNotNull(App.createItem(successTitle, "Filler description", "2020-02-05", false));
     }
 
     @Test
