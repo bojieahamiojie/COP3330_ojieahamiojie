@@ -7,11 +7,11 @@ import java.util.List;
 public class TaskList {
     private List<TaskItem> tasks;
 
-    public void TaskList(){
+    public TaskList(){
         this.tasks = new ArrayList<>();
     }
 
-    public void TaskList(List<TaskItem> tasks){
+    public TaskList(List<TaskItem> tasks){
         this.tasks = tasks;
     }
 
