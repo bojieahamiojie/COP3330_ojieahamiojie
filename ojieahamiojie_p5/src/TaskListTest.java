@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskListTest {
     @Test
-    public void addingTaskItemIncreasesSize(){
+    public void addingItemIncreasesSize(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
         newList.addTask(newItem);
@@ -31,7 +31,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void editingTaskItemDescriptionFailsWIthInvalidIndex(){
+    public void editingItemDescriptionFailsWIthInvalidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
@@ -72,7 +72,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void editingTaskItemTitleFailsWithInvalidIndex(){
+    public void editingItemTitleFailsWithInvalidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
@@ -81,7 +81,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void gettingTaskItemDescriptionFailsWithInvalidIndex(){
+    public void gettingItemDescriptionFailsWithInvalidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
@@ -90,7 +90,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void gettingTaskItemDescriptionSucceedWithValidIndex(){
+    public void gettingItemDescriptionSucceedWithValidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
@@ -103,7 +103,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void gettingTaskItemDueDateFailsWithInvalidIndex(){
+    public void gettingItemDueDateFailsWithInvalidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
@@ -112,7 +112,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void gettingTaskItemDueDateSucceedsWithValidIndex(){
+    public void gettingItemDueDateSucceedsWithValidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
@@ -124,7 +124,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void gettingTaskItemTitleFailsWithInvalidIndex(){
+    public void gettingItemTitleFailsWithInvalidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
@@ -133,7 +133,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void gettingTaskItemTitleSucceedsWithValidIndex(){
+    public void gettingItemTitleSucceedsWithValidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
@@ -145,14 +145,14 @@ public class TaskListTest {
     }
 
     @Test
-    public void newTaskListsEmpty(){
+    public void newListsEmpty(){
         TaskList newList = new TaskList();
 
         assertEquals(0, newList.getTasks().size());
     }
 
     @Test
-    public void removingTaskItemsDecreasesSize(){
+    public void removingItemsDecreasesSize(){
         TaskList newList = new TaskList();
 
         TaskItem newItem1 = new TaskItem("Success", "Success", "2020-01-01", false);
@@ -169,7 +169,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void removingTaskItemsFailsWithInvalidIndex(){
+    public void removingItemsFailsWithInvalidIndex(){
         TaskList newList = new TaskList();
 
         TaskItem newItem1 = new TaskItem("Success", "Success", "2020-01-01", false);
@@ -201,7 +201,7 @@ public class TaskListTest {
         newList.saveList(file);
 
         File checkFile = new File("Saved_Lists//" + path);
-        assertTrue(checkFile.checkExists(checkFile));
+        assertTrue(TaskApp.checkExists(checkFile));
         checkFile.delete();
 
     }
@@ -225,3 +225,4 @@ public class TaskListTest {
         assertFalse(newList.validEditIndex(2));
     }
 }
+
