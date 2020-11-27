@@ -225,4 +225,3 @@ public class TaskListTest {
         assertFalse(newList.validEditIndex(2));
     }
 }
-

@@ -87,7 +87,7 @@ public class TaskItem {
             return false;
         if(month.length() != 2 || !(month.matches("[0-9]+")))
             return false;
-        if(day.length() != 2 || !(day.matches("[0-9]+")))
+        if (day.length() != 2 || !(day.matches("[0-9]+")))
             return false;
 
         return true;
