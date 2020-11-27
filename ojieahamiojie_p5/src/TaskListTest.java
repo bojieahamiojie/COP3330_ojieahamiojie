@@ -41,37 +41,6 @@ public class TaskListTest {
     }
 
     @Test
-    public void editingTaskItemDueDateChangesValue(){
-        TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
-
-        //New values for date
-        String newDate = "2020-01-01";
-
-        newItem.setDueDate(newDate);
-        assertEquals("2020-01-01", newItem.getDueDate());
-    }
-
-    @Test
-    public void editingTaskItemDueDateFailsWithInvalidIndex(){
-        TaskList newList = new TaskList();
-        TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
-
-        newList.addTask(newItem);
-        assertFalse(newList.validEditIndex(2));
-    }
-
-    @Test
-    public void editingTaskItemTitleChangesValue(){
-        TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
-
-        //New values for title
-        String newTitle = "New title!";
-
-        newItem.setTitle(newTitle);
-        assertEquals("New title!", newItem.getTitle());
-    }
-
-    @Test
     public void editingItemTitleFailsWithInvalidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
@@ -90,7 +59,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void gettingItemDescriptionSucceedWithValidIndex(){
+    public void gettingItemDescriptionSucceedsWithValidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
@@ -145,7 +114,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void newListsEmpty(){
+    public void newListIsEmpty(){
         TaskList newList = new TaskList();
 
         assertEquals(0, newList.getTasks().size());
@@ -225,3 +194,34 @@ public class TaskListTest {
         assertFalse(newList.validEditIndex(2));
     }
 }
+
+//@Test
+//public void editingTaskItemDueDateChangesValue(){
+//    TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
+
+//New values for date
+//    String newDate = "2020-01-01";
+
+//    newItem.setDueDate(newDate);
+//    assertEquals("2020-01-01", newItem.getDueDate());
+//}
+
+//@Test
+//public void editingTaskItemDueDateFailsWithInvalidIndex(){
+//    TaskList newList = new TaskList();
+//    TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
+
+//    newList.addTask(newItem);
+//    assertFalse(newList.validEditIndex(2));
+//}
+
+//@Test
+//public void editingTaskItemTitleChangesValue(){
+//    TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
+
+//New values for title
+//    String newTitle = "New title!";
+
+//    newItem.setTitle(newTitle);
+//    assertEquals("New title!", newItem.getTitle());
+//}
