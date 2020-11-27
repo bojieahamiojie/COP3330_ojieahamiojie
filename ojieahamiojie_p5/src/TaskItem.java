@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class TaskItem {
     private String title;
     private String description;
@@ -37,8 +35,9 @@ public class TaskItem {
         return description;
     }
 
-    public void setDescription(String description){
+    public boolean setDescription(String description){
         this.description = description;
+        return false;
     }
 
     public String getDueDate(){
