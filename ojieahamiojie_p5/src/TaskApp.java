@@ -38,7 +38,7 @@ public class TaskApp {
         }
     }
 
-    public static void subMenu(TaskList currentList) throws IOException{
+    public static void subTaskListMenu(TaskList currentList) throws IOException{
         Scanner input = new Scanner(System.in);
         boolean flag = true;
 
@@ -125,7 +125,7 @@ public class TaskApp {
         System.out.println("Which task will you edit? ");
         int choice = Integer.parseInt(input.nextLine());
         if(currentList.validEditIndex(choice)){
-            TaskItem curr = currentList.getTasks().get(choice);
+            TaskItem curr;
 
             String title = "";
             String description = "";
@@ -146,7 +146,8 @@ public class TaskApp {
     }
 
     public static TaskItem parseItem(){
-        TaskItem parsedItem = new TaskItem();
+        new TaskItem();
+        TaskItem parsedItem;
 
         Scanner input = new Scanner(System.in);
 
@@ -155,7 +156,7 @@ public class TaskApp {
         String date = "";
 
         System.out.println("Task title: ");
-        title = input.nextLine();;
+        title = input.nextLine();
         System.out.println("Task description: ");
         description = input.nextLine();
         System.out.println("Task due date (YYYY-MM-DD): ");
@@ -181,7 +182,7 @@ public class TaskApp {
 
     public static void newList() throws IOException {
         TaskList newList = new TaskList();
-        subMenu(newList);
+        subTaskListMenu(newList);
     }
 
     public static boolean checkExists(File file){
@@ -222,6 +223,6 @@ public class TaskApp {
             TaskItem temp = new TaskItem(title, description, date, marked);
             newList.addTask(temp);
         }
-        subMenu(newList);
+        subTaskListMenu(newList);
     }
 }
