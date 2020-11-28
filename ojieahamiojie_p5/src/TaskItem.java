@@ -45,7 +45,7 @@ public class TaskItem {
     }
 
     public boolean setDueDate(String dueDate){
-        if(!this.validateData(dueDate)){
+        if(!this.validateDate(dueDate)){
             System.out.println("\nWARNING: Invalid due date; task not created\n");
             return false;
         }
@@ -72,7 +72,7 @@ public class TaskItem {
         return true;
     }
 
-    public boolean validateData(String date){
+    public boolean validateDate(String date){
         String[] parsedDate = date.split("-");
 
         if(parsedDate.length != 3)

@@ -165,7 +165,7 @@ public class ContactApp {
             System.out.println("\nEnter a new email address (x@y.z) for contact " + choice + ": ");
             email = input.nextLine();
 
-            current = createContactItem(first, last, phone, email, false);
+            current = createContactItem(first, last, phone, email);
             currentContactList.getContacts().set(choice, current);
         }
         else
@@ -192,12 +192,12 @@ public class ContactApp {
         System.out.println("\nEmail address (x@y.z): ");
         email = input.nextLine();
 
-        parsedContactItem = createContactItem(first, last, phone, email, false);
+        parsedContactItem = createContactItem(first, last, phone, email);
         return parsedContactItem;
     }
 
     public static ContactItem createContactItem(String first, String last, String phone, String email){
-        ContactItem createContactItem = new ContactItem();
+        ContactItem createdContactItem = new ContactItem();
         if(!createdContactItem.setFirstName(first) || !createdContactItem.setEmailAddress(email))
             return null;
 
