@@ -199,7 +199,7 @@ public class TaskApp {
         String date = "";
 
         System.out.println("Task title: ");
-        title = input.nextLine();;
+        title = input.nextLine();
         System.out.println("Task description: ");
         description = input.nextLine();
         System.out.println("Task due date (YYYY-MM-DD): ");
@@ -217,10 +217,6 @@ public class TaskApp {
 
         createdItem.setDescription(description);
         return createdItem;
-    }
-
-    public static String parseVal(Scanner input){
-        return input.nextLine();
     }
 
     public static void newList() throws IOException {

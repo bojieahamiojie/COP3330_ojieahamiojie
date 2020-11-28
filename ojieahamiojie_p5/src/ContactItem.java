@@ -3,6 +3,7 @@ public class ContactItem {
     private String last;
     private String phone;
     private String email;
+    private boolean marked;
 
     public ContactItem(){
         this.first = "";
@@ -22,7 +23,7 @@ public class ContactItem {
         return first;
     }
 
-    public boolean setFirst(){
+    public boolean setFirstName(String first){
         if(!this.validateFirst(first)){
             System.out.println("\nWARNING: First name must be at least 1 character long; contact not created\n");
             return false;
@@ -35,7 +36,7 @@ public class ContactItem {
         return last;
     }
 
-    public boolean setLast(){
+    public boolean setLastName(String last){
         if(!this.validateLast(last)){
             System.out.println("\nWARNING: Last name must be at least 1 character long; contact not created\n");
             return false;
@@ -48,7 +49,7 @@ public class ContactItem {
         return phone;
     }
 
-    public boolean setPhone(){
+    public boolean setPhoneNumber(String phone){
         if(!this.validatePhone(phone)){
             System.out.println("\nWARNING: Invalid phone number; contact not created\n");
             return false;
@@ -61,13 +62,25 @@ public class ContactItem {
         return email;
     }
 
-    public boolean setEmail(){
+    public boolean setEmailAddress(String email){
         if(!this.validateEmail(email)){
             System.out.println("\nWARNING: Invalid email address; contact not created\n");
             return false;
         }
         this.email = email;
         return true;
+    }
+
+    public boolean isMarkedEdited(){
+        return marked;
+    }
+
+    public void setMarkedEdited(){
+        this.marked = true;
+    }
+
+    public void setUnmark(){
+        this.marked = false;
     }
 
     public boolean validateFirst(String first){

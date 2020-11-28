@@ -80,7 +80,7 @@ public class ContactApp {
 
             switch(choice){
                 case 1:
-                    currentContactList.printNewElements();
+                    currentContactList.printsElements();
                     break;
                 case 2:
                     ContactItem currentContactItem = parseContactItem();
@@ -120,6 +120,42 @@ public class ContactApp {
         System.out.println("Contact list has been saved!\n");
     }
 
+    public static boolean unmarkEdited(ContactList currentContactList){
+        Scanner input = new Scanner(System.in);
+
+        if(currentContactList.getContacts().size() == 0){
+            System.out.println("There are no contacts!\n");
+            return false;
+        }
+
+        currentContactList.printMarkedEdited();
+        System.out.println("Which contact will unmark as edited? ");
+        int choice = input.nextInt();
+        if(!currentContactList.validateUnmarkIndex(choice)){
+            System.out.println("\nContact is already unmarked!\n");
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean markEdited(ContactList currentContactList){
+        Scanner input = new Scanner(System.in);
+
+        if(currentContactList.getContacts().size() == 0){
+            System.out.println("There are no contacts to edit!\n");
+            return false;
+        }
+
+        currentContactList.printUnmark();
+        System.out.println("Which contact will mark as edited? ");
+        int choice = input.nextInt();
+        if(!currentContactList.validateMarkIndex(choice)){
+            System.out.println("\n Contact is already marked!\n");
+            return false;
+        }
+        return true;
+    }
+
     public static void removeContactItem(ContactList currentContactList){
         Scanner input = new Scanner(System.in);
 
@@ -128,7 +164,7 @@ public class ContactApp {
             return;
         }
 
-        currentContactList.printNewElements();
+        currentContactList.printsElements();
         System.out.println("Which contact will you remove? ");
         int choice = input.nextInt();
 
@@ -144,7 +180,7 @@ public class ContactApp {
             return;
         }
 
-        currentContactList.printNewElements();
+        currentContactList.printsElements();
         System.out.println("Which contact will you edit? ");
         int choice = Integer.parseInt(input.nextLine());
 
