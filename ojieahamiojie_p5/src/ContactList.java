@@ -66,6 +66,8 @@ public class ContactList {
     }
 
     public void printsElements(){
+        System.out.println("Current Contacts\n");
+        System.out.println("----------------\n");
         for(int i = 0; i < contacts.size(); i++){
             ContactItem temp = contacts.get(i);
             System.out.println(i + ")");
@@ -74,7 +76,7 @@ public class ContactList {
                 System.out.println("* ");
             System.out.println("Name: " + temp.getFirst() + " " + temp.getLast());
             System.out.println("Phone: " + temp.getPhone());
-            System.out.println("Email: " + temp.getEmail());
+            System.out.println("Email: " + temp.getEmail() + "\n\n");
         }
     }
 
@@ -86,7 +88,7 @@ public class ContactList {
                 System.out.println(i + ")");
                 System.out.println("Name: " + temp.getFirst() + " " + temp.getLast());
                 System.out.println("Phone: " + temp.getPhone());
-                System.out.println("Email: " + temp.getEmail());
+                System.out.println("Email: " + temp.getEmail() + "\n\n");
             }
         }
     }
@@ -99,7 +101,7 @@ public class ContactList {
                 System.out.println(i + ")");
                 System.out.println("Name: " + temp.getFirst() + " " + temp.getLast());
                 System.out.println("Phone: " + temp.getPhone());
-                System.out.println("Email: " + temp.getEmail());
+                System.out.println("Email: " + temp.getEmail() + "\n\n");
             }
         }
     }

@@ -77,6 +77,7 @@ public class ContactApp {
             System.out.println("5) Save the current list\n");
             System.out.println("6) Quit to main menu\n>");
             int choice = input.nextInt();
+            System.out.println("\n\n");
 
             switch(choice){
                 case 1:
@@ -200,6 +201,7 @@ public class ContactApp {
             phone = input.nextLine();
             System.out.println("\nEnter a new email address (x@y.z) for contact " + choice + ": ");
             email = input.nextLine();
+            System.out.println("\n\n");
 
             current = createContactItem(first, last, phone, email);
             currentContactList.getContacts().set(choice, current);
@@ -227,6 +229,7 @@ public class ContactApp {
         phone = input.nextLine();
         System.out.println("\nEmail address (x@y.z): ");
         email = input.nextLine();
+        System.out.println("\n\n");
 
         parsedContactItem = createContactItem(first, last, phone, email);
         return parsedContactItem;
@@ -264,6 +267,8 @@ public class ContactApp {
 
         System.out.println("Enter the filename to load: ");
         String path = input.nextLine();
+        System.out.println("contact list has been loaded");
+        System.out.println("\n\n");
 
         File file = new File("Saved_Contacts//" + path);
         if(!checkToExist(file)){
