@@ -10,13 +10,15 @@ public class ContactItem {
         this.last = "";
         this.phone = "";
         this.email = "";
+        this.marked = false;
     }
 
-    public ContactItem(String first, String last, String phone, String email){
+    public ContactItem(String first, String last, String phone, String email, boolean marked){
         this.first = first;
         this.last = last;
         this.phone = phone;
         this.email = email;
+        this.marked = marked;
     }
 
     public String getFirst(){
@@ -109,14 +111,14 @@ public class ContactItem {
             return false;
         if(threeDigitPrefix.length() != 3 || !(threeDigitPrefix.matches("[0-9]+")))
             return false;
-        if (lineNumber.length() != 4 || !(lineNumber.matches("[0-9]+")))
+        if(lineNumber.length() != 4 || !(lineNumber.matches("[0-9]+")))
             return false;
 
         return true;
     }
 
     public boolean validateEmail(String email){
-        String[] parsedEmail = email.split("\\s*@\\s*.\\s*");
+        String[] parsedEmail = email.split("@|\\.");
 
         if(parsedEmail.length != 3)
             return false;

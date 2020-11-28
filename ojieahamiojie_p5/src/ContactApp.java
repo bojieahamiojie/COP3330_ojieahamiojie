@@ -280,8 +280,9 @@ public class ContactApp {
             String last = variables[1];
             String phone = variables[2];
             String email = variables[3];
+            boolean marked = Boolean.parseBoolean(variables[4]);
 
-            ContactItem temp = new ContactItem(first, last, phone, email);
+            ContactItem temp = new ContactItem(first, last, phone, email, marked);
             newContact.addContact(temp);
         }
         subContactListMenu(newContact);

@@ -67,15 +67,14 @@ public class ContactList {
 
     public void printsElements(){
         for(int i = 0; i < contacts.size(); i++){
-            System.out.println(") ");
             ContactItem temp = contacts.get(i);
+            System.out.println(i + ")");
 
             if(temp.isMarkedEdited())
                 System.out.println("* ");
-            System.out.println(temp.getFirst());
-            System.out.println(temp.getLast());
-            System.out.println(temp.getPhone());
-            System.out.println(temp.getEmail());
+            System.out.println("Name: " + temp.getFirst() + " " + temp.getLast());
+            System.out.println("Phone: " + temp.getPhone());
+            System.out.println("Email: " + temp.getEmail());
         }
     }
 
@@ -84,11 +83,10 @@ public class ContactList {
             ContactItem temp = contacts.get(i);
 
             if(!temp.isMarkedEdited()){
-                System.out.println(i + ") ");
-                System.out.println(temp.getFirst());
-                System.out.println(temp.getLast());
-                System.out.println(temp.getPhone());
-                System.out.println(temp.getEmail());
+                System.out.println(i + ")");
+                System.out.println("Name: " + temp.getFirst() + " " + temp.getLast());
+                System.out.println("Phone: " + temp.getPhone());
+                System.out.println("Email: " + temp.getEmail());
             }
         }
     }
@@ -98,11 +96,10 @@ public class ContactList {
             ContactItem temp = contacts.get(i);
 
             if(!temp.isMarkedEdited()){
-                System.out.println(i + ") ");
-                System.out.println(temp.getFirst());
-                System.out.println(temp.getLast());
-                System.out.println(temp.getPhone());
-                System.out.println(temp.getEmail());
+                System.out.println(i + ")");
+                System.out.println("Name: " + temp.getFirst() + " " + temp.getLast());
+                System.out.println("Phone: " + temp.getPhone());
+                System.out.println("Email: " + temp.getEmail());
             }
         }
     }
