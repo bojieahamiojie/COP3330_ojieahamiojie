@@ -1,3 +1,7 @@
-1) Name: Derrick St. Laurent
+0) Name: Derrick St. Laurent
 Phone: 407-273-7104
 Email: laurentd@gmail.com
+
+1) Name: Deandra Jones
+Phone: 321-973-0163
+Email: didijones@yahoo.com
