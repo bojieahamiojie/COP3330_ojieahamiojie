@@ -103,7 +103,7 @@ public class ContactItem {
     }
 
     public boolean validateEmail(String email){
-        String[] parsedEmail = email.split("\\s*\\@\\s*.");
+        String[] parsedEmail = email.split("\\s*@\\s*.\\s*");
 
         if(parsedEmail.length != 3)
             return false;
