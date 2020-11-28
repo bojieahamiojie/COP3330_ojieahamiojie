@@ -11,12 +11,20 @@ public class TaskList {
         this.tasks = new ArrayList<>();
     }
 
+    public TaskList(List<TaskItem> tasks){
+        this.tasks = tasks;
+    }
+
     public void addTask(TaskItem item){
-        tasks.add(item);
+        tasks.add((TaskItem) item);
     }
 
     public List<TaskItem> getTasks(){
         return tasks;
+    }
+
+    public void setTasks(List<TaskItem> tasks){
+        this.tasks = tasks;
     }
 
     public boolean removeTask(int choice){
@@ -27,14 +35,53 @@ public class TaskList {
         return false;
     }
 
+    public boolean completedTasks(){
+        int count = 0;
+        for(TaskItem temp : this.getTasks()){
+            if(temp.isMarked())
+                count++;
+        }
+
+        if(count == this.getTasks().size() - 1)
+            return true;
+
+        return false;
+    }
+
+    public boolean uncompletedTasks(){
+        int count = 0;
+        for(TaskItem temp : this.getTasks()){
+            if(!temp.isMarked())
+                count++;
+        }
+
+        if(count == this.getTasks().size() - 1)
+            return true;
+
+        return false;
+    }
+
     public boolean validEditIndex(int choice){
-        return choice >= 0 && choice < this.getTasks().size();
+        if(choice >= 0 && choice < this.getTasks().size())
+            return true;
+
+        return false;
     }
 
     public boolean validMarkIndex(int choice){
         if(choice >= 0 && choice < this.getTasks().size()) {
             if (!(this.getTasks().get(choice).isMarked())) {
                 this.getTasks().get(choice).setMarked();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean validUnmarkIndex(int choice){
+        if(choice >= 0 && choice < this.getTasks().size()) {
+            if (this.getTasks().get(choice).isMarked()) {
+                this.getTasks().get(choice).setUnmarked();
                 return true;
             }
         }
@@ -51,6 +98,32 @@ public class TaskList {
             System.out.println("[" + temp.getDueDate() + "] ");
             System.out.println(temp.getTitle() + ": ");
             System.out.println(temp.getDescription());
+        }
+    }
+
+    public void printUnmarked(){
+        for(int i = 0; i < tasks.size(); i++){
+            TaskItem temp = tasks.get(i);
+
+            if(!temp.isMarked()){
+                System.out.println(i + ") ");
+                System.out.println("[" + temp.getDueDate() + "] ");
+                System.out.println(temp.getTitle() + ": ");
+                System.out.println(temp.getDescription());
+            }
+        }
+    }
+
+    public void printMarked(){
+        for(int i = 0; i < tasks.size(); i++){
+            TaskItem temp = tasks.get(i);
+
+            if(temp.isMarked()){
+                System.out.println(i + ") ");
+                System.out.println("[" + temp.getDueDate() + "] ");
+                System.out.println(temp.getTitle() + ": ");
+                System.out.println(temp.getDescription());
+            }
         }
     }
 

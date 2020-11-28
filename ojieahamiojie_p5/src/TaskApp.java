@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class TaskApp {
@@ -38,7 +39,7 @@ public class TaskApp {
         }
     }
 
-    public static void subTaskListMenu(TaskList currentList) throws IOException{
+    public static void subMenu(TaskList currentList) throws IOException{
         Scanner input = new Scanner(System.in);
         boolean flag = true;
 
@@ -50,8 +51,10 @@ public class TaskApp {
             System.out.println("2) Add an item\n");
             System.out.println("3) Edit an item\n");
             System.out.println("4) Remove an item\n");
-            System.out.println("5) Save the current list\n");
-            System.out.println("6) Quit to main menu\n>");
+            System.out.println("5) Mark an item as completed\n");
+            System.out.println("6) Unmark an item as completed\n");
+            System.out.println("7) Save the current list\n");
+            System.out.println("8) Quit to main menu\n>");
 
             int choice = input.nextInt();
 
@@ -71,9 +74,14 @@ public class TaskApp {
                     removeItem(currentList);
                     break;
                 case 5:
-                    saveFile(currentList);
+                    markDone(currentList);
                     break;
                 case 6:
+                    unmarkDone(currentList);
+                case 7:
+                    saveFile(currentList);
+                    break;
+                case 8:
                     flag = false;
                     break;
                 default:
@@ -95,6 +103,42 @@ public class TaskApp {
         }
         currentList.saveList(file);
         System.out.println("Task list has been saved!\n");
+    }
+
+    public static boolean unmarkDone(TaskList currentList){
+        Scanner input = new Scanner(System.in);
+
+        if(currentList.getTasks().size() == 0){
+            System.out.println("There are no tasks!\n");
+            return false;
+        }
+
+        currentList.printMarked();
+        System.out.println("Which task will unmark as completed? ");
+        int choice = input.nextInt();
+        if(!currentList.validUnmarkIndex(choice)){
+            System.out.println("\nItem is already unmarked!\n");
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean markDone(TaskList currentList){
+        Scanner input = new Scanner(System.in);
+
+        if(currentList.getTasks().size() == 0){
+            System.out.println("There are no tasks to mark!\n");
+            return false;
+        }
+
+        currentList.printUnmarked();
+        System.out.println("Which task will mark as complete? ");
+        int choice = input.nextInt();
+        if(!currentList.validMarkIndex(choice)){
+            System.out.println("\n Item is already marked!\n");
+            return false;
+        }
+        return true;
     }
 
     public static void removeItem(TaskList currentList){
@@ -125,7 +169,7 @@ public class TaskApp {
         System.out.println("Which task will you edit? ");
         int choice = Integer.parseInt(input.nextLine());
         if(currentList.validEditIndex(choice)){
-            TaskItem curr;
+            TaskItem curr = currentList.getTasks().get(choice);
 
             String title = "";
             String description = "";
@@ -146,8 +190,7 @@ public class TaskApp {
     }
 
     public static TaskItem parseItem(){
-        new TaskItem();
-        TaskItem parsedItem;
+        TaskItem parsedItem = new TaskItem();
 
         Scanner input = new Scanner(System.in);
 
@@ -156,7 +199,7 @@ public class TaskApp {
         String date = "";
 
         System.out.println("Task title: ");
-        title = input.nextLine();
+        title = input.nextLine();;
         System.out.println("Task description: ");
         description = input.nextLine();
         System.out.println("Task due date (YYYY-MM-DD): ");
@@ -182,7 +225,7 @@ public class TaskApp {
 
     public static void newList() throws IOException {
         TaskList newList = new TaskList();
-        subTaskListMenu(newList);
+        subMenu(newList);
     }
 
     public static boolean checkExists(File file){
@@ -223,6 +266,6 @@ public class TaskApp {
             TaskItem temp = new TaskItem(title, description, date, marked);
             newList.addTask(temp);
         }
-        subTaskListMenu(newList);
+        subMenu(newList);
     }
 }
