@@ -14,6 +14,7 @@ public class ContactApp {
             System.out.println("2) contact list\n");
             System.out.println("3) quit\n>");
             int choice = input.nextInt();
+            System.out.println("\n\n");
 
             switch(choice){
                 case 2:
@@ -44,6 +45,7 @@ public class ContactApp {
             System.out.println("2) Load an existing list\n");
             System.out.println("3) quit\n> ");
             int choice = input.nextInt();
+            System.out.println("\n\n");
 
             switch(choice){
                 case 1:
@@ -119,6 +121,7 @@ public class ContactApp {
         }
         currentContactList.savingList(existingFile);
         System.out.println("Contact list has been saved!\n");
+        System.out.println("\n\n");
     }
 
     public static boolean unmarkEdited(ContactList currentContactList){
@@ -267,8 +270,6 @@ public class ContactApp {
 
         System.out.println("Enter the filename to load: ");
         String path = input.nextLine();
-        System.out.println("contact list has been loaded");
-        System.out.println("\n\n");
 
         File file = new File("Saved_Contacts//" + path);
         if(!checkToExist(file)){
@@ -276,11 +277,13 @@ public class ContactApp {
             return;
         }
 
+        System.out.println("contact list has been loaded\n");
+        System.out.println("\n\n");
         Scanner sc = new Scanner(file);
         ContactList newContact = new ContactList();
         while(sc.hasNextLine()){
             String line = sc.nextLine();
-            String[] variables = line.split("\\|");
+            String[] variables = line.split("\\r?\\n");
             String first = variables[0];
             String last = variables[1];
             String phone = variables[2];

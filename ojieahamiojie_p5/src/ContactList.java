@@ -109,12 +109,10 @@ public class ContactList {
     public void savingList(File file) throws IOException{
         FileWriter fileWriter = new FileWriter(file);
         for(ContactItem temp : contacts){
-            String line = temp.getFirst() + "|";
-            line += temp.getFirst() + "|";
-            line += temp.getLast() + "|";
-            line += temp.getPhone() + "|";
-            line += temp.getEmail() + "|";
-            line += temp.isMarkedEdited() + "\n";
+            String line = temp.getFirst() + " ";
+            line += temp.getLast() + "\n";
+            line += temp.getPhone() + "\n";
+            line += temp.getEmail() + "\n\n";
             fileWriter.write(line);
         }
         fileWriter.close();

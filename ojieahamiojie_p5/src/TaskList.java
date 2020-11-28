@@ -89,40 +89,46 @@ public class TaskList {
     }
 
     public void printElements(){
+        System.out.println("Current tasks\n");
+        System.out.println("-------------\n");
         for(int i = 0; i < tasks.size(); i++){
-            System.out.println(i + ") ");
+            System.out.println(i + ")");
             TaskItem temp = tasks.get(i);
 
             if(temp.isMarked())
                 System.out.println("*** ");
             System.out.println("[" + temp.getDueDate() + "] ");
             System.out.println(temp.getTitle() + ": ");
-            System.out.println(temp.getDescription());
+            System.out.println(temp.getDescription() + "\n\n");
         }
     }
 
     public void printUnmarked(){
         for(int i = 0; i < tasks.size(); i++){
+            System.out.println("Uncompleted tasks\n");
+            System.out.println("-----------------\n");
             TaskItem temp = tasks.get(i);
 
             if(!temp.isMarked()){
-                System.out.println(i + ") ");
+                System.out.println(i + ")");
                 System.out.println("[" + temp.getDueDate() + "] ");
                 System.out.println(temp.getTitle() + ": ");
-                System.out.println(temp.getDescription());
+                System.out.println(temp.getDescription() + "\n\n");
             }
         }
     }
 
     public void printMarked(){
         for(int i = 0; i < tasks.size(); i++){
+            System.out.println("Completed tasks\n");
+            System.out.println("---------------\n");
             TaskItem temp = tasks.get(i);
 
             if(temp.isMarked()){
-                System.out.println(i + ") ");
+                System.out.println(i + ")");
                 System.out.println("[" + temp.getDueDate() + "] ");
                 System.out.println(temp.getTitle() + ": ");
-                System.out.println(temp.getDescription());
+                System.out.println(temp.getDescription() + "\n\n");
             }
         }
     }
@@ -130,10 +136,9 @@ public class TaskList {
     public void saveList(File file) throws IOException{
         FileWriter fw = new FileWriter(file);
         for(TaskItem temp : tasks){
-            String line = temp.getTitle() + "|";
-            line += temp.getTitle() + "|";
-            line += temp.getDueDate() + "|";
-            line += temp.isMarked() + "\n";
+            String line = temp.getDueDate() + ": ";
+            line += temp.getTitle() + ": ";
+            line += temp.getDescription() + ": \n\n";
             fw.write(line);
         }
         fw.close();

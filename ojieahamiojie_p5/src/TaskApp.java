@@ -24,6 +24,7 @@ public class TaskApp {
             switch(choice){
                 case 1:
                     System.out.println("new task list has been created\n");
+                    System.out.println("\n\n");
                     newList();
                     break;
                 case 2:
@@ -54,8 +55,8 @@ public class TaskApp {
             System.out.println("6) Unmark an item as completed\n");
             System.out.println("7) Save the current list\n");
             System.out.println("8) Quit to main menu\n>");
-
             int choice = input.nextInt();
+            System.out.println("\n\n");
 
             switch(choice){
                 case 1:
@@ -94,6 +95,8 @@ public class TaskApp {
 
         System.out.println("Enter the filename to save as: ");
         String path = input.nextLine();
+        System.out.println("task list has been saved\n");
+        System.out.println("\n\n2");
 
         File file = new File("Saved_Lists//" + path);
         if(checkExists(file)){
@@ -115,6 +118,7 @@ public class TaskApp {
         currentList.printMarked();
         System.out.println("Which task will unmark as completed? ");
         int choice = input.nextInt();
+        System.out.println("\n\n");
         if(!currentList.validUnmarkIndex(choice)){
             System.out.println("\nItem is already unmarked!\n");
             return false;
@@ -133,6 +137,7 @@ public class TaskApp {
         currentList.printUnmarked();
         System.out.println("Which task will mark as complete? ");
         int choice = input.nextInt();
+        System.out.println("\n\n");
         if(!currentList.validMarkIndex(choice)){
             System.out.println("\n Item is already marked!\n");
             return false;
@@ -151,6 +156,7 @@ public class TaskApp {
         currentList.printElements();
         System.out.println("Which task will remove? ");
         int choice = input.nextInt();
+        System.out.println("\n\n");
 
         if(!currentList.removeTask(choice))
             System.out.println("\nWARNING: Invalid item!\n");
@@ -167,8 +173,9 @@ public class TaskApp {
         currentList.printElements();
         System.out.println("Which task will you edit? ");
         int choice = Integer.parseInt(input.nextLine());
+        System.out.println("\n\n");
         if(currentList.validEditIndex(choice)){
-            TaskItem curr = currentList.getTasks().get(choice);
+            TaskItem curr;
 
             String title = "";
             String description = "";
@@ -180,6 +187,7 @@ public class TaskApp {
             description = input.nextLine();
             System.out.println("\nTask due date (YYYY-MM-DD) for task " + choice + ": ");
             date = input.nextLine();
+            System.out.println("\n\n");
 
             curr = createItem(title, description, date, false);
             currentList.getTasks().set(choice, curr);
@@ -203,6 +211,7 @@ public class TaskApp {
         description = input.nextLine();
         System.out.println("Task due date (YYYY-MM-DD): ");
         date = input.nextLine();
+        System.out.println("\n\n");
 
         parsedItem = createItem(title, description, date, false);
         return parsedItem;
@@ -241,6 +250,8 @@ public class TaskApp {
 
         System.out.println("Enter the filename to load: ");
         String path = input.nextLine();
+        System.out.println("task list has been loaded\n");
+        System.out.println("\n\n");
 
         File file = new File("Saved_Lists//" + path);
         if(!checkExists(file)){
