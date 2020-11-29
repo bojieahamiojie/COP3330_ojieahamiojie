@@ -3,33 +3,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ContactApp {
-    public static void main(String[] args) throws IOException {
-        Scanner input = new Scanner(System.in);
-        boolean flag = true;
 
-        while(flag){
-            System.out.println("Select your application\n");
-            System.out.println("-----------------------\n");
-            System.out.println("1) task list\n");
-            System.out.println("2) contact list\n");
-            System.out.println("3) quit\n>");
-            int choice = input.nextInt();
-            System.out.println("\n\n");
-
-            switch(choice){
-                case 2:
-                    mainMenu();
-                    break;
-                case 3:
-                    flag = false;
-                    break;
-                default:
-                    System.out.println("Input is incorrect\n");
-            }
-        }
-    }
-
-    public static void mainMenu() throws IOException{
+    public static void mainContactMenu() throws IOException{
         Scanner input = new Scanner(System.in);
         boolean flag = true;
 
@@ -45,7 +20,6 @@ public class ContactApp {
             System.out.println("2) Load an existing list\n");
             System.out.println("3) quit\n> ");
             int choice = input.nextInt();
-            System.out.println("\n\n");
 
             switch(choice){
                 case 1:
@@ -206,7 +180,7 @@ public class ContactApp {
             email = input.nextLine();
             System.out.println("\n\n");
 
-            current = createContactItem(first, last, phone, email);
+            current = editContactItem(first, last, phone, email, false);
             currentContactList.getContacts().set(choice, current);
         }
         else
@@ -234,18 +208,24 @@ public class ContactApp {
         email = input.nextLine();
         System.out.println("\n\n");
 
-        parsedContactItem = createContactItem(first, last, phone, email);
+        parsedContactItem = createContactItem(first, last, phone, email, false);
         return parsedContactItem;
     }
 
-    public static ContactItem createContactItem(String first, String last, String phone, String email){
+    public static ContactItem createContactItem(String first, String last, String phone, String email, boolean marked){
         ContactItem createdContactItem = new ContactItem();
-        if(!createdContactItem.setFirstName(first) || !createdContactItem.setEmailAddress(email))
+        if(!createdContactItem.setFirstName(first) && !createdContactItem.setLastName(last) && !createdContactItem.setPhoneNumber(phone) && !createdContactItem.setEmailAddress(email))
             return null;
 
-        createdContactItem.setLastName(last);
-        createdContactItem.setPhoneNumber(phone);
         return createdContactItem;
+    }
+
+    public static ContactItem editContactItem(String first, String last, String phone, String email, boolean marked){
+        ContactItem editedContactItem = new ContactItem();
+        if(!editedContactItem.setFirstName(first) && !editedContactItem.setLastName(last) && !editedContactItem.setPhoneNumber(phone) && !editedContactItem.setEmailAddress(email))
+            return null;
+
+        return editedContactItem;
     }
 
     public static void newContact() throws IOException{

@@ -127,11 +127,11 @@ public class ContactItem {
         String serverName = parsedEmail[1];
         String domainName = parsedEmail[2];
 
-        if(userName.length() < 1)
+        if(userName.length() < 1 || userName.matches(""))
             return false;
-        if(serverName.length() < 1)
+        if(serverName.length() < 1 || serverName.matches(""))
             return false;
-        if(domainName.length() < 1)
+        if(domainName.length() < 1 || domainName.matches(""))
             return false;
 
         return true;

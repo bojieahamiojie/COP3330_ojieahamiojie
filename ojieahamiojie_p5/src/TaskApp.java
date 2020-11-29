@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TaskApp {
 
-    public static void main(String[] args) throws IOException{
+    public static void mainMenu() throws IOException{
         Scanner input = new Scanner(System.in);
         boolean flag = true;
 
@@ -20,6 +20,7 @@ public class TaskApp {
             System.out.println("2) Load an existing list\n");
             System.out.println("3) quit\n> ");
             int choice = input.nextInt();
+            System.out.println("\n\n");
 
             switch(choice){
                 case 1:
