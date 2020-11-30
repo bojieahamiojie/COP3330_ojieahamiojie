@@ -12,7 +12,7 @@ public class MainApp {
             System.out.println("-----------------------\n");
             System.out.println("1) task list\n");
             System.out.println("2) contact list\n");
-            System.out.println("3) quit");
+            System.out.println("3) quit\n>");
             int choice = input.nextInt();
             System.out.println("\n\n");
 
