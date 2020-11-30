@@ -64,6 +64,15 @@ public class ContactListTest {
 
     @Test
     public void editingSucceedsWithNonBlankValues(){
+        String nonBlankFirst = "Nicole";
+        String nonBlankLast = "Santiago";
+        String nonBlankPhone = "407-204-3957";
+        String nonBlankEmail = "nikkisan@region.com";
+        ContactItem temp = new ContactItem("Success", "Success", "713-496-2053", "a@b.c", false);
+        assertTrue(temp.setFirstName(nonBlankFirst));
+        assertTrue(temp.setLastName(nonBlankLast));
+        assertTrue(temp.setPhoneNumber(nonBlankPhone));
+        assertTrue(temp.setEmailAddress(nonBlankEmail));
     }
 
     @Test
