@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskListTest {
     @Test
-    public void addingItemIncreasesSize(){
+    public void addingItemsIncreasesSize(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
         newList.addTask(newItem);
@@ -31,7 +31,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void editingItemDescriptionFailsWIthInvalidIndex(){
+    public void editingItemDescriptionFailsWithInvalidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
@@ -41,11 +41,82 @@ public class TaskListTest {
     }
 
     @Test
+    public void editingItemDescriptionSucceedsWithExpectedValue(){
+        TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
+
+        String newDescription = "New description!";
+        newItem.setDescription(newDescription);
+        assertEquals("New description!", newItem.getDescription());
+    }
+
+    @Test
+    public void editingItemDueDateSucceedsWithExpectedValue(){
+        TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
+
+        String newDate = "2020-01-01";
+
+        newItem.setDueDate(newDate);
+        assertEquals("2020-01-01", newItem.getDueDate());
+    }
+
+    @Test
+    public void editingItemTitleFailsWithEmptyString(){
+        TaskList newList = new TaskList();
+        TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
+
+        String newTitle = "";
+
+        newItem.setTitle(newTitle);
+        assertFalse(newList.validEditIndex(2));
+    }
+
+    @Test
     public void editingItemTitleFailsWithInvalidIndex(){
         TaskList newList = new TaskList();
         TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
 
         newList.addTask(newItem);
+        assertFalse(newList.validEditIndex(2));
+    }
+
+    @Test
+    public void editingItemTitleSucceedsWithExpectedValue(){
+        TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
+
+        String newTitle = "New title!";
+
+        newItem.setTitle(newTitle);
+        assertEquals("New title!", newItem.getTitle());
+    }
+
+    @Test
+    public void editingTaskItemDueDateFailsWithInvalidDateFormat(){
+        TaskList newList = new TaskList();
+        TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
+
+        String newDueDate = "20200101";
+
+        newItem.setDueDate(newDueDate);
+        assertFalse(newList.validEditIndex(2));
+    }
+
+    @Test
+    public void editingTaskItemDueDateFailsWithInvalidIndex(){
+        TaskList newList = new TaskList();
+        TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
+
+        newList.addTask(newItem);
+        assertFalse(newList.validEditIndex(2));
+    }
+
+    @Test
+    public void editingTaskItemDueDateFailsWithInvalidYYYMMDD(){
+        TaskList newList = new TaskList();
+        TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
+
+        String newDueDate = "202-01-01";
+
+        newItem.setDueDate(newDueDate);
         assertFalse(newList.validEditIndex(2));
     }
 
@@ -194,27 +265,6 @@ public class TaskListTest {
         assertFalse(newList.validEditIndex(2));
     }
 }
-
-//@Test
-//public void editingTaskItemDueDateChangesValue(){
-//    TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
-
-//New values for date
-//    String newDate = "2020-01-01";
-
-//    newItem.setDueDate(newDate);
-//    assertEquals("2020-01-01", newItem.getDueDate());
-//}
-
-//@Test
-//public void editingTaskItemDueDateFailsWithInvalidIndex(){
-//    TaskList newList = new TaskList();
-//    TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);
-
-//    newList.addTask(newItem);
-//    assertFalse(newList.validEditIndex(2));
-//}
-
 //@Test
 //public void editingTaskItemTitleChangesValue(){
 //    TaskItem newItem = new TaskItem("Success", "Success", "2020-01-01", false);

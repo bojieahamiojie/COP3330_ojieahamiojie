@@ -28,30 +28,30 @@ public class TaskItemTest {
 
     @Test
     public void editingDescriptionSucceedsWithExpectedValue() {
-        String expectedDescription = "Edited description";
+        String goodDescription = "Edited description";
         TaskItem temp = new TaskItem("Success", "Success", "2020-05-08", false);
-        assertFalse(temp.setDescription(expectedDescription));
+        assertFalse(temp.setDescription(goodDescription));
     }
 
     @Test
     public void editingDueDateFailsWithInvalidDateFormat() {
         String failDateFormat = "20200202";
-        TaskItem temp = new TaskItem("Success", "Success", failDateFormat, false);
+        TaskItem temp = new TaskItem("Success", "Success", "2020-01-01", false);
         assertFalse(temp.setDueDate(failDateFormat));
     }
 
     @Test
     public void editingDueDateFailsWithInvalidYYYMMDD() {
-        String invalidDate = "2000202";
+        String invalidDate = "202-02-02";
         TaskItem temp = new TaskItem("Success", "Success", invalidDate, false);
         assertFalse(temp.setDueDate(invalidDate));
     }
 
     @Test
     public void editingDueDateSucceedsWithExpectedValue() {
-        String expectedDueDate = "Edited due date";
-        TaskItem temp = new TaskItem("Filler title", "Filler description", expectedDueDate, false);
-        assertFalse(temp.setDueDate(expectedDueDate));
+        String expectedDueDate = "2020-11-21";
+        TaskItem temp = new TaskItem("Filler title", "Filler description", "2020-01-01", false);
+        assertTrue(temp.setDueDate(expectedDueDate));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class TaskItemTest {
     @Test
     public void editingTitleSucceedsWithExpectedValue() {
         String goodTitle = "Edited title";
-        TaskItem temp = new TaskItem("Success", "Success", "2019-01-01", false);
-        assertFalse(temp.setDueDate(goodTitle));
+        TaskItem temp = new TaskItem("Success", "Success", "2020-01-01", false);
+        assertTrue(temp.setTitle(goodTitle));
     }
 }
